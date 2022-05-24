@@ -1,0 +1,90 @@
+### 토큰 받기
+POST http://localhost:8080/oauth/token
+Content-Type: application/json
+
+{
+  "id": "tester1",
+  "secret": "111111"
+}
+
+### 연차 신청
+POST http://localhost:8080/api/employee/tester1/vacation
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+{
+  "started_at": "2022-05-02",
+  "ended_at": "2022-05-04",
+  "vacation_type": "VACATION",
+  "comment": "test4"
+}
+
+### 반차 신청
+POST http://localhost:8080/api/employee/tester1/vacation
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+{
+  "started_at": "2022-05-04",
+  "ended_at": "",
+  "vacation_type": "HALF_VACATION",
+  "comment": "반차 test"
+}
+
+### 반반차 신청
+POST http://localhost:8080/api/employee/tester1/vacation
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+{
+  "started_at": "2022-04-26",
+  "ended_at": "",
+  "vacation_type": "QUARTER_VACATION",
+  "comment": "반반차 test"
+}
+
+### 휴가 취소
+DELETE http://localhost:8080/api/employee/tester1/vacation/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+{
+  "account_id": "tester1",
+  "vacation_id": 1
+}
+
+### 사용자 조회
+GET http://localhost:8080/api/employee/tester1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+
+### 모든 사용자 조회
+GET http://localhost:8080/api/employee
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+### 페이지1 사용자 조회
+GET http://localhost:8080/api/employee?page=0&size=5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+### 페이지2 사용자 조회
+GET http://localhost:8080/api/employee?page=1&size=5
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+###  사용자 휴가 리스트 조회
+GET http://localhost:8080/api/employee/tester1/vacation
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+###  페이지1 사용자 휴가 리스트 조회
+GET http://localhost:8080/api/employee/tester1/vacation?page=0&size=3
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
+
+###  페이지2 사용자 휴가 리스트 조회
+GET http://localhost:8080/api/employee/tester1/vacation?page=1&size=3
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaXJpIiwiaWF0IjoxNjUwODg4MDI4LCJleHAiOjE2NTE0OTI4Mjh9.LU-j4UgLZ_dncnUZyKXoEZFG8Rv8kcUxWXaAFig4R0ofbezz4uFhigbt-RO1EfeNLnio7JRQjPR1yeX0Bd8ZgA
+Content-Type: application/json
